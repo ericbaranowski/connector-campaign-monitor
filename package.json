@@ -1,0 +1,26 @@
+{
+  "name": "connector-campaign-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://logicsoftware@logicsoftware.visualstudio.com:22/Intellibook/_git/connector-campaign-monitor"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "applicationinsights": "^0.20.0",
+    "async": "^2.4.1",
+    "body-parser": "^1.17.2",
+    "createsend-node": "^0.8.2",
+    "express": "^4.15.3",
+    "express-basic-auth": "^1.0.2",
+    "request": "^2.81.0"
+  }
+}
