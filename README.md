@@ -1,8 +1,8 @@
 Intellibook / Campaign Monitor connector
 ------
 
-This app is used to act as a proxy between Intellibook API and CampaignMonitor
-to handle subscription requests.
+This app is used to act as a proxy between Intellibook and Campaign Monitor
+to maintain Subscriber Lists in CM based on attendee registrations in Intellibook.
 
 ### Instructions
 
