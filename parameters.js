@@ -19,7 +19,7 @@ function getParameters(env) {
 
   // Set core parameters
   parameters.env = env;
-  parameters.ip = process.env.IP || parameters.ip || '0.0.0.0';
+  parameters.ip = process.env.IP || parameters.ip || '127.0.0.1';
   parameters.port = process.env.CMC_PORT || parameters.port || 80;
   parameters.subscriberTimezone = process.env.CMC_SUBSCRIBER_TIMEZONE || parameters.subscriberTimezone || null;
   parameters.aiKey = process.env.CMC_AI_KEY || parameters.aiKey || null;
