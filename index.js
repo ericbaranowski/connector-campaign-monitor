@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config({path: 'development.env'});
 const app = require('express')();
 const parameters = require('./parameters').getParameters(process.env.NODE_ENV || 'development');
 
