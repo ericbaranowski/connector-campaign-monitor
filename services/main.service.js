@@ -84,7 +84,8 @@ function subscribeNewlyRegisteredClients(bookingId, travellers, cb) {
             const customFields = [
                 {"FieldName": "Booking ID", "DataType": "Text", "VisibleInPreferenceCenter": false},
                 {"FieldName": "Product Name", "DataType": "Text", "VisibleInPreferenceCenter": false},
-                {"FieldName": "Product Option ID", "DataType": "Number", "VisibleInPreferenceCenter": false}
+                {"FieldName": "Product Option ID", "DataType": "Number", "VisibleInPreferenceCenter": false},
+                {"FieldName": "Booking Created", "DataType": "Date", "VisibleInPreferenceCenter": false}
             ];
 
             cmClient.lists.getCustomFields(listId, (err, resp) => {
@@ -113,6 +114,9 @@ function subscribeNewlyRegisteredClients(bookingId, travellers, cb) {
             (listId, bookingData, productData, cb) => {
             // Generate the required subscribers array
             const subscribers = travellers.map(t => {
+
+                // TODO  take bookingData.CreatedUtc and convert to local timezone before adding to custom fields (key 'BookingCreated')
+
                 return {
                     EmailAddress: t.Email,
                     Name: `${t.FirstName} ${t.LastName}`,
