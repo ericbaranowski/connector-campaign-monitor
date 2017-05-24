@@ -25,6 +25,11 @@ function config(parameters) {
     timezone = parameters.subscriberTimezone;
 }
 
+function formatUtcDate(utcValue) {
+    var result = moment.utc(utcValue).tz(timezone).format('YYYY-MM-DD');
+    return result;
+}
+
 /**
  * Try to subscribe newly registered clients to a list
  *
@@ -149,7 +154,7 @@ function subscribeNewlyRegisteredClients(bookingId, travellers, cb) {
                         },
                         {
                             Key: 'Booking Created',
-                            Value: moment.utc(bookingData.CreatedUtc).tz(timezone).format(),
+                            Value: formatUtcDate(bookingData.CreatedUtc)
                         },
                     ],
                 }
@@ -240,3 +245,4 @@ function unsubscribeClients(bookingId, travellers, cb) {
         },
     ], cb);
 }
+
