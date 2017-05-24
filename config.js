@@ -15,16 +15,17 @@ const basicAuth = require('express-basic-auth');
  * @param {Object} parameters
  */
 function config(app, parameters) {
-  // Attach JSON parser middleware
-  app.use(bodyParser.json());
-  // Attach basic auth middleware
-  app.use(basicAuth({
-    users: {
-      [parameters.security.username]: parameters.security.password,
-    },
-  }));
+    // Attach JSON parser middleware
+    app.use(bodyParser.json());
+    // Attach basic auth middleware
+    app.use(basicAuth({
+        users: {
+            [parameters.security.username]: parameters.security.password,
+        },
+    }));
 
-  require('./services/campaign-monitor.service').config(parameters);
-  require('./services/intellibook.service').config(parameters);
-  require('./services/logging.service').config(parameters);
+    require('./services/campaign-monitor.service').config(parameters);
+    require('./services/intellibook.service').config(parameters);
+    require('./services/logging.service').config(parameters);
+    require('./services/main.service').config(parameters);
 }

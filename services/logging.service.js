@@ -16,11 +16,11 @@ let client;
  * @param {Object} parameters
  */
 function config(parameters) {
-  appInsights
-    .setup(parameters.aiKey)
-    .start();
+    appInsights
+        .setup(parameters.aiKey)
+        .start();
 
-  client = appInsights.client;
+    client = appInsights.client;
 }
 
 /**
@@ -29,5 +29,5 @@ function config(parameters) {
  * @return {Object|undefined}
  */
 function getClient() {
-  return client;
+    return client;
 }

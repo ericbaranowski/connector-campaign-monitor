@@ -19,9 +19,9 @@ const productCache = {};
  * @param {Object} parameters
  */
 function config(parameters) {
-  authData.user = parameters.ib.apiUser;
-  authData.pass = parameters.ib.apiKey;
-  ibBaseUrl = parameters.ib.baseUrl;
+    authData.user = parameters.ib.apiUser;
+    authData.pass = parameters.ib.apiKey;
+    ibBaseUrl = parameters.ib.baseUrl;
 }
 
 /**
@@ -31,16 +31,20 @@ function config(parameters) {
  * @param {Function} cb
  */
 function getBookingData(bookingId, cb) {
-  request.get(`${ibBaseUrl}/api/bookings?bookingId=${bookingId}`, {
-    auth: authData,
-    json: true,
-  }, (err, res, body) => {
-    if (err) {
-      return cb(err);
+    if (!bookingId) {
+        return cb(null, {});
     }
 
-    return cb(null, body[0]);
-  });
+    request.get(`${ibBaseUrl}/api/bookings?bookingId=${bookingId}`, {
+        auth: authData,
+        json: true,
+    }, (err, res, body) => {
+        if (err) {
+            return cb(err);
+        }
+
+        return cb(null, body[0] || {});
+    });
 }
 
 /**
@@ -50,19 +54,23 @@ function getBookingData(bookingId, cb) {
  * @param {Function} cb
  */
 function getProductData(productId, cb) {
-  if (productCache.hasOwnProperty(productId)) {
-    return cb(null, productCache[productId]);
-  }
-
-  request.get(`${ibBaseUrl}/api/products?productId=${productId}`, {
-    auth: authData,
-    json: true,
-  }, (err, res, body) => {
-    if (err) {
-      return cb(err);
+    if (productCache.hasOwnProperty(productId)) {
+        return cb(null, productCache[productId]);
     }
 
-    productCache[productId] = body[0];
-    return cb(null, body[0]);
-  });
+    if (!productId) {
+        return cb(null, {});
+    }
+
+    request.get(`${ibBaseUrl}/api/products?productId=${productId}`, {
+        auth: authData,
+        json: true,
+    }, (err, res, body) => {
+        if (err) {
+            return cb(err);
+        }
+
+        productCache[productId] = body[0];
+        return cb(null, body[0] || {});
+    });
 }

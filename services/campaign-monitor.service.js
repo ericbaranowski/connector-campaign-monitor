@@ -13,9 +13,9 @@ const createsend = require('createsend-node');
  * @param parameters
  */
 function config(parameters) {
-  // Create CM client
-  const cmClient = new createsend({apiKey: parameters.cm.apiKey});
-  cmClient.$clientId = parameters.cm.clientId;
+    // Create CM client
+    const cmClient = new createsend({apiKey: parameters.cm.apiKey});
+    cmClient.$clientId = parameters.cm.clientId;
 
-  Object.assign(module.exports.cmClient, cmClient);
+    Object.assign(module.exports.cmClient, cmClient);
 }

@@ -12,5 +12,5 @@ require('./api')(app);
 app.listen(parameters.port, parameters.ip);
 
 process.on('uncaughtException', err => {
-  require('./services/logging.service').getClient().trackException(err);
+    require('./services/logging.service').getClient().trackException(err);
 });

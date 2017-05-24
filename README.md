@@ -13,7 +13,7 @@ set environment variables (see below) and run `npm start`.
 
  * **IP** - address to listen incoming requests onto (default `0.0.0.0`);
  * **CMC_PORT** - port to listen incoming requests onto (default `80`);
- * **CMC_SUBSCRIBER_TIMEZONE** - subscriber timezone;
+ * **CMC_SUBSCRIBER_TIMEZONE** - subscriber timezone (e.g. `Australia/Sydney`);
  * **CMC_AI_KEY** - AppInsights key (e.g. `28d94fac-f18a-1267-8995-7736029ed590`);
  * **CMC_SECURITY_USERNAME** - username for Basic Auth (e.g. `user`);
  * **CMC_SECURITY_PASSWORD** - password for Basic Auth (e.g. `password`);
